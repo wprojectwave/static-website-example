@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wordle in Dimension Template</title>
+    <title>Wordle Edition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { font-family: sans-serif; background: #121212; color: white; text-align: center; }
@@ -34,7 +34,7 @@
     <p id="message"></p>
 
     <script>
-        const answer = "penis";
+        const answer = "alexi";
         let currentRow = 0;
 
         function submitGuess() {
@@ -67,13 +67,14 @@
             document.getElementById("guess-input").value = "";
 
             if (guess === answer) {
-                document.getElementById("message").textContent = "You won! 🎉";
+                // redirect to AI chatbot page
+                window.location.href = "chatbot.html";
             } else if (currentRow >= 6) {
                 document.getElementById("message").textContent = "Game over! The word was: " + answer.toUpperCase();
             }
         }
 
-        // Optionally, allow pressing Enter to submit
+        // Allow pressing Enter to submit
         document.getElementById("guess-input").addEventListener("keydown", function(e){
             if(e.key === "Enter") submitGuess();
         });
